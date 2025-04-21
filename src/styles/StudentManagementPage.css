@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.studentmanagement-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  background-color: #fdfdfd;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.students-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.student-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  width: 280px;
+  text-align: left;
+}
+
+.student-card h3 {
+  color: #264653;
+  margin-bottom: 0.5rem;
+}
+
+.student-card p {
+  margin: 0.3rem 0;
+  font-size: 14px;
+}
+
+.student-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+.msg {
+  background-color: #2a9d8f;
+}
+
+.remove {
+  background-color: #e63946;
+}

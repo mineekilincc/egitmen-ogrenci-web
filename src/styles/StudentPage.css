@@ -1,0 +1,45 @@
+.studentspage-container {
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .students-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .student-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  }
+  
+  .student-box h3 {
+    color: #264653;
+    margin-bottom: 0.5rem;
+  }
+  
+  .student-box p {
+    margin: 0.3rem 0;
+    font-size: 14px;
+  }
+  
+  .view-btn {
+    margin-top: 1rem;
+    padding: 10px 16px;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

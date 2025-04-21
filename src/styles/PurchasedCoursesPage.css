@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.purchasedcourses-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.course-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.course-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  color: #2a9d8f;
+  margin-bottom: 0.5rem;
+}
+
+.course-card p {
+  margin: 0.3rem 0;
+  font-size: 14px;
+}
+
+.join-button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #e76f51;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
