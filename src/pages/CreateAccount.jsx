@@ -33,11 +33,20 @@ const CreateAccount = () => {
         role: form.role,
         createdAt: new Date()
       });
-      console.log("Firestore'a kullanıcı yazıldı:", form);
-      
 
-      setMessage("Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz...");
-      setTimeout(() => navigate("/login"), 1500);
+      console.log("Firestore'a kullanıcı yazıldı:", form);
+
+      // 3. localStorage'a bilgileri kaydet
+      localStorage.setItem("userName", form.fullName);
+      localStorage.setItem("userRole", form.role);
+
+      // 4. Rol kontrolü ile yönlendirme
+      if (form.role === "instructor") {
+        navigate("/instructor-panel");
+      } else {
+        navigate("/student-panel");
+      }
+
     } catch (err) {
       setMessage("Hata: " + err.message);
     }

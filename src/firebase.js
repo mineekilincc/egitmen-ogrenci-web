@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyBHaYUTZ2dxx9ePvF37O2fcOqRG10-49Mg",
   authDomain: "edu-connect-3b031.firebaseapp.com",
   projectId: "edu-connect-3b031",
-  storageBucket: "edu-connect-3b031.firebasestorage.app",
+  storageBucket: "edu-connect-3b031.appspot.com", // düzeltildi
   messagingSenderId: "1045713974628",
   appId: "1:1045713974628:web:30777e1612e399d9b97671"
 };
@@ -17,6 +17,3 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 export { auth, db };
-
-
-

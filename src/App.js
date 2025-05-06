@@ -20,7 +20,15 @@ import PurchasedCoursesPage from "./pages/PurchasedCoursesPage";
 import PurchasedCourseDetailsPage from "./pages/PurchasedCourseDetailsPage";
 import PurchasedCourse from "./pages/PurchasedCourse";
 
+
 import AllCoursesPage from "./pages/AllCoursesPage";
+
+import CourseDetailsPage from "./pages/CourseDetailsPage";
+import PurchasePage from "./pages/PurchasePage";
+
+import SeedCourses from "./pages/SeedCourses";
+
+
 
 
 
@@ -49,6 +57,12 @@ function App() {
         <Route path="/purchased-course" element={<PurchasedCourse />} />
 
         <Route path="/all-courses" element={<AllCoursesPage />} />
+
+        <Route path="/course/:courseId" element={<CourseDetailsPage />} />
+        <Route path="/purchase/:courseId" element={<PurchasePage />} />
+
+        <Route path="/seed-courses" element={<SeedCourses />} />
+
 
 
 

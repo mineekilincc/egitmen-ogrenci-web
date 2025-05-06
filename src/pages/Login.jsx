@@ -14,13 +14,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Giriş
+      // 1. Firebase Authentication ile giriş
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
       console.log("Giriş başarılı:", user.uid);
 
-      // Firestore'dan kullanıcı bilgisi al
+      // 2. Firestore'dan kullanıcı rolünü çek
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
 
@@ -28,11 +28,11 @@ const Login = () => {
         const { role, fullName } = docSnap.data();
         console.log("Kullanıcı rolü:", role);
 
-        // localStorage'a kaydet
+        // 3. Bilgileri localStorage'a kaydet
         localStorage.setItem("userRole", role);
         localStorage.setItem("userName", fullName);
 
-        // Role göre yönlendirme
+        // 4. Role göre yönlendirme
         if (role === "student") {
           navigate("/student-panel");
         } else if (role === "instructor") {
@@ -41,11 +41,10 @@ const Login = () => {
           setMessage("Tanımsız rol.");
         }
       } else {
-        console.log("Kullanıcı Firestore'da bulunamadı.");
         setMessage("Kullanıcı bilgisi bulunamadı.");
       }
     } catch (err) {
-      console.log("Giriş hatası:", err.message);
+      console.error("Giriş hatası:", err.message);
       setMessage("Hata: " + err.message);
     }
   };

@@ -1,5 +1,7 @@
 // src/pages/AddCoursePage.jsx
 import React, { useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db, auth } from "../firebase";
 import "../styles/AddCourse.css";
 
 const AddCoursePage = () => {
@@ -12,16 +14,41 @@ const AddCoursePage = () => {
     price: "",
   });
 
+  const [message, setMessage] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCourse({ ...course, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Ders eklendi:", course);
-    alert("Ders başarıyla eklendi!");
-    // TODO: Firestore’a ders bilgisi kaydedilebilir
+
+    try {
+      // Konsola veri yaz
+      console.log("Eklenecek ders:", course);
+
+      await addDoc(collection(db, "courses"), {
+        ...course,
+        price: course.type === "free" ? "0" : course.price,
+        instructorId: auth.currentUser?.uid || "anonymous",
+        instructorName: localStorage.getItem("userName") || "Eğitmen",
+        createdAt: serverTimestamp(),
+      });
+
+      setMessage("✅ Ders başarıyla eklendi!");
+      setCourse({
+        title: "",
+        description: "",
+        date: "",
+        time: "",
+        type: "free",
+        price: "",
+      });
+    } catch (error) {
+      console.error("Firestore Hatası:", error);
+      setMessage(`❌ Hata oluştu: ${error.message}`);
+    }
   };
 
   return (
@@ -79,6 +106,8 @@ const AddCoursePage = () => {
         )}
 
         <button type="submit">Dersi Kaydet</button>
+
+        {message && <p className="add-course-message">{message}</p>}
       </form>
     </div>
   );

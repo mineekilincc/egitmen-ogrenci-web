@@ -1,0 +1,53 @@
+.instructor-settings-container {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .instructor-settings-form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .instructor-settings-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+  }
+  
+  .instructor-settings-form input,
+  .instructor-settings-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background-color: #f1f3f5;
+    font-size: 14px;
+  }
+  
+  .instructor-settings-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #fd7e14;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .instructor-settings-form button:hover {
+    background-color: #e8590c;
+  }
+  

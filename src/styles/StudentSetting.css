@@ -1,45 +1,73 @@
 .studentsettings-container {
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    padding: 2rem;
-    background-color: #fefefe;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .studentsettings-form {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  }
-  
-  .studentsettings-form h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #2a9d8f;
-  }
-  
-  .studentsettings-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background-color: #f2f2f2;
-  }
-  
-  .studentsettings-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #2a9d8f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.studentsettings-form {
+  background-color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.settings-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2a9d8f;
+  font-size: 1.8rem;
+}
+
+.studentsettings-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.studentsettings-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #f7f9fa;
+  transition: border-color 0.3s;
+}
+
+.studentsettings-form input:focus {
+  border-color: #2a9d8f;
+  outline: none;
+}
+
+.save-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #23867c;
+}
+
+.settings-message {
+  margin-top: 1rem;
+  text-align: center;
+  color: #27ae60;
+  font-weight: 500;
+  font-size: 0.95rem;
+}

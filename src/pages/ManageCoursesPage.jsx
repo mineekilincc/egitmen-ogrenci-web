@@ -1,29 +1,33 @@
-// src/pages/ManageCoursesPage.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ManageCourses.css";
 import { Link } from "react-router-dom";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const ManageCoursesPage = () => {
-  const [courses, setCourses] = useState([
-    {
-      id: 1,
-      title: "Python'a Giriş",
-      description: "Temel seviyede Python eğitimi",
-      date: "2025-04-25",
-      time: "14:00",
-    },
-    {
-      id: 2,
-      title: "Veri Bilimi 101",
-      description: "Veri analizi ve visualization temelleri",
-      date: "2025-04-30",
-      time: "11:00",
-    },
-  ]);
+  const [courses, setCourses] = useState([]);
 
-  const handleDelete = (id) => {
-    const updated = courses.filter((course) => course.id !== id);
-    setCourses(updated);
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const snapshot = await getDocs(collection(db, "courses"));
+      const courseList = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setCourses(courseList);
+    };
+
+    fetchCourses();
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "courses", id));
+      setCourses((prev) => prev.filter((course) => course.id !== id));
+      alert("✅ Ders silindi.");
+    } catch (err) {
+      alert("❌ Silme hatası: " + err.message);
+    }
   };
 
   return (
@@ -37,17 +41,10 @@ const ManageCoursesPage = () => {
             <li key={course.id} className="course-card">
               <h3>{course.title}</h3>
               <p>{course.description}</p>
-              <p>
-                <strong>Tarih:</strong> {course.date} | <strong>Saat:</strong>{" "}
-                {course.time}
-              </p>
+              <p><strong>Tarih:</strong> {course.date} | <strong>Saat:</strong> {course.time}</p>
               <div className="course-actions">
-                <Link to={`/edit-course/${course.id}`} className="edit-btn">
-                  Düzenle
-                </Link>
-                <button onClick={() => handleDelete(course.id)} className="delete-btn">
-                  Sil
-                </button>
+                <Link to={`/edit-course/${course.id}`} className="edit-btn">Düzenle</Link>
+                <button onClick={() => handleDelete(course.id)} className="delete-btn">Sil</button>
               </div>
             </li>
           ))}
